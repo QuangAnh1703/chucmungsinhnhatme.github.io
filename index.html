@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Để hỗ trợ responsive -->
+    <title>Chúc mừng sinh nhật mẹ yêu</title>
+    <style>
+        /* CSS bắt đầu */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: url('https://example.com/birthday-background.jpg') no-repeat center center fixed; /* Đường dẫn ảnh nền */
+            background-size: cover;
+        }
+
+        .overlay {
+            background-color: rgba(255, 255, 255, 0.9);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px; /* Giảm padding để phù hợp hơn trên di động */
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            width: 90%; /* Thay đổi width để có không gian hơn trên màn hình nhỏ */
+            max-width: 600px; /* Giới hạn chiều rộng tối đa */
+        }
+
+        .title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem; /* Giảm kích thước chữ để phù hợp với di động */
+            color: #ff69b4;
+            margin: 20px 0;
+            opacity: 0; /* Ban đầu không hiển thị */
+        }
+
+        .message {
+            font-size: 1.2rem; /* Giảm kích thước chữ để phù hợp với di động */
+            color: #333;
+            line-height: 1.6;
+            margin: 20px 0;
+            opacity: 0; /* Ban đầu không hiển thị */
+        }
+
+        .mom-image {
+            width: 100%; /* Chiều rộng 100% để ảnh có thể thu nhỏ trên di động */
+            height: auto; /* Chiều cao tự động giữ tỷ lệ */
+            border-radius: 15px; /* Thay đổi để phù hợp với hình chữ nhật */
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            opacity: 0; /* Ban đầu không hiển thị */
+        }
+
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.2); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        button {
+            background-color: #ff69b4;
+            color: white;
+            padding: 10px 20px; /* Giảm kích thước nút */
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            font-weight: bold;
+            display: none; /* Ban đầu ẩn nút */
+        }
+
+        button:hover {
+            background-color: #ff1493;
+            transform: scale(1.05);
+        }
+        /* CSS kết thúc */
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <div class="container">
+            <h1 class="title">Chúc mừng sinh nhật mẹ!</h1>
+            <p class="message">Mẹ yêu quý của con, con chúc mẹ luôn mạnh khỏe, hạnh phúc và ngập tràn niềm vui. Cảm ơn mẹ vì tất cả những hy sinh và tình yêu thương vô bờ bến. Con luôn yêu mẹ!</p>
+
+            <img src="hpbd.mom.jpg" alt="Ảnh của mẹ" class="mom-image">
+            
+            <div class="heart">
+                <img src="heart.png" alt="Heart">
+            </div>
+
+            <div id="button-container">
+                <button onclick="playMusic()">Bật nhạc</button>
+                <button onclick="stopMusic()">Dừng nhạc</button>
+            </div>
+        </div>
+    </div>
+    <audio id="birthdayMusic" src="hpbd.mom.mp3"></audio>
+
+    <script>
+        // JavaScript bắt đầu
+        window.onload = function() {
+            // Hiệu ứng xuất hiện cho tiêu đề
+            const title = document.querySelector('.title');
+            const message = document.querySelector('.message');
+            const momImage = document.querySelector('.mom-image');
+            const heart = document.querySelector('.heart');
+            const buttonContainer = document.getElementById('button-container');
+
+            // Chữ xuất hiện từ từ
+            title.style.opacity = 1;
+            setTimeout(() => {
+                message.style.opacity = 1;
+            }, 2000);
+
+            // Ảnh xuất hiện sau 4 giây
+            setTimeout(() => {
+                momImage.style.opacity = 1;
+                buttonContainer.style.display = 'block'; // Hiện nút
+            }, 4000);
+
+        }
+
+        function playMusic() {
+            document.getElementById('birthdayMusic').play();
+        }
+
+        function stopMusic() {
+            document.getElementById('birthdayMusic').pause();
+        }
+        // JavaScript kết thúc
+    </script>
+</body>
+</html>
